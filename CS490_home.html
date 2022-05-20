@@ -2,64 +2,67 @@
 <html>
 
 <head>
-	<title>CS490 Website</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="workshop_deets.json"></script>
-	<script>
-		function handleNavClick(obj) {
-			var elements = document.getElementsByClassName("active");
-			obj.classList.add("active");
-			for (var i = 0; i < elements.length; i++) {
-				var element = elements[i];
-				if (element.id != obj.id) {
-					element.classList.remove("active");
-					document.getElementById(element.id.slice(4)).classList.add("hidden");
+	<<<<<<< HEAD <title>CS490 Website</title>
+		=======
+		<title>CS390 Website</title>
+		>>>>>>> rrename-header
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="workshop_deets.json"></script>
+		<script>
+			function handleNavClick(obj) {
+				var elements = document.getElementsByClassName("active");
+				obj.classList.add("active");
+				for (var i = 0; i < elements.length; i++) {
+					var element = elements[i];
+					if (element.id != obj.id) {
+						element.classList.remove("active");
+						document.getElementById(element.id.slice(4)).classList.add("hidden");
+					}
+				}
+				document.getElementById(obj.id.slice(4)).classList.remove("hidden");
+			}
+
+			function drawWorkshopCards() {
+				var workshops_content = document.getElementById("workshops");
+				for (var i = 0; i < workshops.length; i++) {
+					var workshop_card = document.createElement("div");
+					workshop_card.classList.add("column");
+
+					var title_elem = document.createElement("h4");
+					title_elem.classList.add("column-title");
+					var title = document.createTextNode(workshops[i].name);
+					title_elem.appendChild(title);
+					workshop_card.appendChild(title_elem);
+
+					var date_div = document.createElement("div");
+					date_div.classList.add("column-deets");
+					var date = document.createTextNode("Date: " + workshops[i].date);
+					date_div.appendChild(date);
+					workshop_card.appendChild(date_div);
+
+					var speaker_div = document.createElement("div");
+					speaker_div.classList.add("column-deets");
+					var speaker = document.createTextNode("Speaker: " + workshops[i].speaker);
+					speaker_div.appendChild(speaker);
+					workshop_card.appendChild(speaker_div);
+
+					var description_div = document.createElement("div");
+					description_div.classList.add("column-description");
+					var description = document.createTextNode(workshops[i].description);
+					description_div.appendChild(description);
+					workshop_card.appendChild(description_div);
+
+					workshops_content.appendChild(workshop_card);
 				}
 			}
-			document.getElementById(obj.id.slice(4)).classList.remove("hidden");
-		}
-
-		function drawWorkshopCards() {
-			var workshops_content = document.getElementById("workshops");
-			for (var i = 0; i < workshops.length; i++) {
-				var workshop_card = document.createElement("div");
-				workshop_card.classList.add("column");
-
-				var title_elem = document.createElement("h4");
-				title_elem.classList.add("column-title");
-				var title = document.createTextNode(workshops[i].name);
-				title_elem.appendChild(title);
-				workshop_card.appendChild(title_elem);
-
-				var date_div = document.createElement("div");
-				date_div.classList.add("column-deets");
-				var date = document.createTextNode("Date: " + workshops[i].date);
-				date_div.appendChild(date);
-				workshop_card.appendChild(date_div);
-
-				var speaker_div = document.createElement("div");
-				speaker_div.classList.add("column-deets");
-				var speaker = document.createTextNode("Speaker: " + workshops[i].speaker);
-				speaker_div.appendChild(speaker);
-				workshop_card.appendChild(speaker_div);
-
-				var description_div = document.createElement("div");
-				description_div.classList.add("column-description");
-				var description = document.createTextNode(workshops[i].description);
-				description_div.appendChild(description);
-				workshop_card.appendChild(description_div);
-
-				workshops_content.appendChild(workshop_card);
-			}
-		}
-	</script>
+		</script>
 </head>
 
 <body id="body" onload="drawWorkshopCards()">
 	<div class="top-border"></div>
 	<!--HEADER -->
 	<div class="header">
-		<h1>CPSC 490</h1>
+		<h2>CPSC 436</h2>
 		<p>Alumni-taught Industry Skills</p>
 		<p>Summer 2018</p>
 	</div>
